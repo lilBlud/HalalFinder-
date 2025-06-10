@@ -1,0 +1,21 @@
+Schema::create('restaurants', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('user_id')->constrained()->onDelete('cascade');
+    $table->string('name');
+    $table->text('description');
+    $table->string('address');
+    $table->string('city');
+    $table->string('state');
+    $table->string('postal_code');
+    $table->string('country');
+    $table->string('phone');
+    $table->string('email');
+    $table->string('website')->nullable();
+    $table->string('cuisine_type');
+    $table->time('opening_time');
+    $table->time('closing_time');
+    $table->decimal('latitude', 10, 8);
+    $table->decimal('longitude', 11, 8);
+    $table->boolean('is_approved')->default(false);
+    $table->timestamps();
+});
